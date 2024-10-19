@@ -10,6 +10,7 @@
     "./components": "./dist/components/index.js"
   },
   "scripts": {
+    "postinstall": "npm run build",
     "watch": "tsc --watch",
     "build": "tsc --build",
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
@@ -38,9 +39,9 @@
     "react-dom": "^16 || ^17 || ^18 || ^19"
   },
   "devDependencies": {
-    "@types/node": "^18.16.1",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.1",
+    "@types/node": "^20.14.8",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
     "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
@@ -51,10 +52,10 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "next": "^13.3.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^5.0.4"
+    "next": "^15.0.0-rc.1",
+    "react": "^19.0.0-rc-fb9a90fa48-20240614",
+    "react-dom": "^19.0.0-rc-fb9a90fa48-20240614",
+    "typescript": "^5.5.4"
   },
   "keywords": [
     "facebook-conversion-api",
