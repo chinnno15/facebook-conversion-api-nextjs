@@ -9,7 +9,6 @@ type Props = {
 };
 
 const FBPixelProvider = ({children}: Props) => {
-    console.log('###### FBPixelProvider #####');
     // const router = useRouter();
 
     useEffect(() => {
