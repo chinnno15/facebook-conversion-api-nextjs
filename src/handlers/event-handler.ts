@@ -1,6 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 import { getClientIpAddress, getClientFbp, getClientFbc } from '../utils/request';
 import { sendServerSideEvent } from '../services/server-side-events';
+import {NextApiRequest, NextApiResponse} from "next";
 
 type Arguments = {
   eventName: string
