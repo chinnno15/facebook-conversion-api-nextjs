@@ -1,23 +1,26 @@
 'use client';
 
 import React, {useEffect} from 'react';
-// import {useRouter} from 'next/router';
+import {usePathname} from 'next/navigation';
 import {fbPageView} from '../conversion-api';
+import log from "eslint-plugin-react/lib/util/log";
 
 type Props = {
     children: React.ReactNode
 };
 
 const FBPixelProvider = ({children}: Props) => {
-    // const router = useRouter();
+    const pathname = usePathname();
 
     useEffect(() => {
         fbPageView();
 
-        // router.events.on('routeChangeComplete', fbPageView);
+        // router.pathname.on('routeChangeComplete', fbPageView);
         // return () => {
         //     router.events.off('routeChangeComplete', fbPageView);
         // };
+
+        console.log('### page view should trigger ###')
     }, []);
 
     return (
