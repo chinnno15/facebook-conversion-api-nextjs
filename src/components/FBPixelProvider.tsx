@@ -1,27 +1,26 @@
 'use client';
-
 import React, {useEffect} from 'react';
-import {usePathname} from 'next/navigation';
 import {fbPageView} from '../conversion-api';
+import {usePathname} from 'next/navigation';
 import log from "eslint-plugin-react/lib/util/log";
+import useLocalStorage from "../utils/use-local-storage";
 
 type Props = {
     children: React.ReactNode
 };
 
+
 const FBPixelProvider = ({children}: Props) => {
+    let [value, isLoaded, setValue] = useLocalStorage<string>('pathname', '');
+
     const pathname = usePathname();
 
     useEffect(() => {
-        fbPageView();
-
-        // router.pathname.on('routeChangeComplete', fbPageView);
-        // return () => {
-        //     router.events.off('routeChangeComplete', fbPageView);
-        // };
-
-        console.log('### page view should trigger ###')
-    }, []);
+        if (value !== pathname && isLoaded) {
+            fbPageView();
+            setValue(pathname);
+        }
+    }, [value, setValue, isLoaded]);
 
     return (
         // eslint-disable-next-line react/jsx-no-useless-fragment
